@@ -1,0 +1,1 @@
+web: gunicorn surveillance_system.wsgi:application
