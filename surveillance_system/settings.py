@@ -108,7 +108,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS Configuration
 # Set the allowed origin to your Firebase-hosted React app's URL.
-CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', 'http://localhost:3000').split(',')
+# settings.py
+CORS_ALLOWED_ORIGINS = os.getenv(
+    "CORS_ALLOWED_ORIGINS",
+    "http://localhost:5173"
+).split(",")
+
 CORS_ALLOW_CREDENTIALS = True
 
 # Email settings (Gmail)
@@ -134,3 +139,4 @@ if google_creds_json:
         print("✅ Google credentials loaded successfully")
     except Exception as e:
         print("⚠️ Error loading Google credentials:", e)
+
