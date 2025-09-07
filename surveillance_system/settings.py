@@ -22,49 +22,49 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 # Application definition
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
 
-    # Third-party apps
-    'rest_framework',
-    'corsheaders',
+    # Third-party apps
+    'rest_framework',
+    'corsheaders',
 
-    # Local apps
-    'core',
+    # Local apps
+    'core',
 ]
 
 MIDDLEWARE = [
-    # Place WhiteNoise at the top for efficiency
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Place WhiteNoise at the top for efficiency
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'surveillance_system.urls'
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
 ]
 
 WSGI_APPLICATION = 'surveillance_system.wsgi.application'
@@ -72,23 +72,23 @@ WSGI_APPLICATION = 'surveillance_system.wsgi.application'
 # Database
 # Use the default SQLite for local development and a production database on Render.
 if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600)
-    }
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600)
+    }
 else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 # Internationalization
@@ -110,8 +110,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Set the allowed origin to your Firebase-hosted React app's URL.
 # settings.py
 CORS_ALLOWED_ORIGINS = [
-    "https://wastetr.web.app",
-    "http://localhost:5173",  # Keep for local development
+    "https://wastetr.web.app",
+    "http://localhost:5173",  # Keep for local development
 ]
 
 CORS_ALLOW_CREDENTIALS = False
@@ -136,9 +136,9 @@ GOOGLE_CREDENTIALS = None
 google_creds_json = os.getenv("GOOGLE_APPLICATION_CREDENTIALS_JSON")
 
 if google_creds_json:
-    try:
-        creds_dict = json.loads(google_creds_json)
-        GOOGLE_CREDENTIALS = service_account.Credentials.from_service_account_info(creds_dict)
-        print("✅ Google credentials loaded successfully")
-    except Exception as e:
-        print("⚠️ Error loading Google credentials:", e)
+    try:
+        creds_dict = json.loads(google_creds_json)
+        GOOGLE_CREDENTIALS = service_account.Credentials.from_service_account_info(creds_dict)
+        print("✅ Google credentials loaded successfully")
+    except Exception as e:
+        print("⚠️ Error loading Google credentials:", e)
