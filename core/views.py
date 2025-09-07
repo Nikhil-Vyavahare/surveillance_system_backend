@@ -38,7 +38,7 @@ class ProcessImageView(APIView):
                 firebase_ref = store_response_in_firebase(gemini_response, image_url)
 
                 # Send email
-                recipient_email = 'recipient@example.com'  # Change later
+                recipient_email = 'nikhilvyavahare2@gmail.com'  # Change later
                 send_email_with_image(recipient_email, absolute_path, gemini_response)
 
                 # Save to DB
@@ -77,3 +77,4 @@ class GetData(APIView):
 
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
