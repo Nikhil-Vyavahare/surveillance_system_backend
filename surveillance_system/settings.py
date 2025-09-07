@@ -109,11 +109,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS Configuration
 # Set the allowed origin to your Firebase-hosted React app's URL.
 # settings.py
+# CORS Configuration
 CORS_ALLOWED_ORIGINS = [
     "https://wastetr.web.app",
-    "http://localhost:5173",  # Keep for local development
+    "http://localhost:5173",  # For local development
 ]
-
 CORS_ALLOW_CREDENTIALS = False
 
 # This setting allows all origins to make cross-origin requests.
@@ -142,3 +142,4 @@ if google_creds_json:
         print("✅ Google credentials loaded successfully")
     except Exception as e:
         print("⚠️ Error loading Google credentials:", e)
+
