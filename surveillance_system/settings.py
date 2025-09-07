@@ -109,12 +109,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS Configuration
 # Set the allowed origin to your Firebase-hosted React app's URL.
 # settings.py
-CORS_ALLOWED_ORIGINS = os.getenv(
-    "CORS_ALLOWED_ORIGINS",
-    "http://localhost:5173"
-).split(",")
+CORS_ALLOWED_ORIGINS = [
+    "https://wastetr.web.app",
+    "http://localhost:5173",  # Keep for local development
+]
 
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = False
 
 # Email settings (Gmail)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -139,4 +139,5 @@ if google_creds_json:
         print("✅ Google credentials loaded successfully")
     except Exception as e:
         print("⚠️ Error loading Google credentials:", e)
+
 
